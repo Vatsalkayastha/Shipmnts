@@ -40,3 +40,11 @@ To start the development server and run the project, use the following command:
 npm start
 ```
 This will start the development server and open the application in your default web browser. By default, it will be accessible at http://localhost:3000.
+
+
+5 **Images** 
+![Alt Text](https://github.com/Vatsalkayastha/Shipmnts/blob/main/S1.png?raw=true)
+![Alt Text](https://github.com/Vatsalkayastha/Shipmnts/blob/main/S2.png?raw=true)
+![Alt Text](https://github.com/Vatsalkayastha/Shipmnts/blob/main/S3.png?raw=true)
+![Alt Text](https://github.com/Vatsalkayastha/Shipmnts/blob/main/S4.png?raw=true)
+![Alt Text](https://github.com/Vatsalkayastha/Shipmnts/blob/main/S5.png?raw=true)
