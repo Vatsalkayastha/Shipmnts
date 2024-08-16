@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import ElementSelector from "../components/ElementSelector.jsx";
 import FormElementRender from "../components/FormElementRender.jsx";
-import { useNavigate } from "react-router-dom";
-
 
 const Form = () => {
   const [formTitle, setFormTitle] = useState("");
   const [formDescription, setFormDescription] = useState("");
   const [formElements, setFormElements] = useState([]);
   const [errors, setErrors] = useState({});
-   const navigate = useNavigate();
+
   const addElement = () => {
     setFormElements([
       ...formElements,
@@ -50,29 +48,28 @@ const Form = () => {
   };
 
   const handleSubmit = (e) => {
-     e.preventDefault();
-     const newErrors = {};
-     formElements.forEach((element) => {
-       if (element.required && !element.answer.trim()) {
-         newErrors[element.id] = "This field is required.";
-       }
-     });
-     if (Object.keys(newErrors).length === 0) {
-       // Navigate to the preview page and pass form data through state
-       navigate("/preview", {
-         state: { formData: { formTitle, formDescription, formElements } },
-       });
-     } else {
-       setErrors(newErrors);
-     }
+    e.preventDefault();
+    const newErrors = {};
+    formElements.forEach((element) => {
+      if (element.required && !element.answer.trim()) {
+        newErrors[element.id] = "This field is required.";
+      }
+    });
+    if (Object.keys(newErrors).length === 0) {
+      // Process form data without navigating to preview
+      console.log({ formTitle, formDescription, formElements });
+      // You can add additional logic here to handle form submission, such as saving data to a server
+    } else {
+      setErrors(newErrors);
+    }
   };
 
   return (
     <div className="bg-violet-400 min-h-[100vh]">
-      <div className="mx-auto p-6 w-[50vw] block">
+      <div className="mx-auto p-6 w-[50vw] block rounded-lg">
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-4 rounded shadow-md mb-4"
+          className="bg-white p-4 rounded-lg shadow-md mb-4"
         >
           <h2 className="text-2xl font-bold mb-4">Create Your Form</h2>
           <input
@@ -102,7 +99,7 @@ const Form = () => {
             type="submit"
             className="bg-green-500 text-white p-2 rounded mt-4"
           >
-            Preview
+            Submit
           </button>
         </form>
         <ElementSelector onAddElement={addElement} />
