@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import ElementSelector from "../components/ElementSelector.jsx";
 import FormElementRender from "../components/FormElementRender.jsx";
+import { useNavigate } from "react-router-dom";
+
 
 const Form = () => {
   const [formTitle, setFormTitle] = useState("");
   const [formDescription, setFormDescription] = useState("");
   const [formElements, setFormElements] = useState([]);
   const [errors, setErrors] = useState({});
-
+   const navigate = useNavigate();
   const addElement = () => {
     setFormElements([
       ...formElements,
@@ -48,23 +50,21 @@ const Form = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
-    formElements.forEach((element) => {
-      if (element.required && !element.answer.trim()) {
-        newErrors[element.id] = "This field is required.";
-      }
-    });
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-    } else {
-      // Submit form data
-      console.log("Form submitted:", {
-        formTitle,
-        formDescription,
-        formElements,
-      });
-    }
+     e.preventDefault();
+     const newErrors = {};
+     formElements.forEach((element) => {
+       if (element.required && !element.answer.trim()) {
+         newErrors[element.id] = "This field is required.";
+       }
+     });
+     if (Object.keys(newErrors).length === 0) {
+       // Navigate to the preview page and pass form data through state
+       navigate("/preview", {
+         state: { formData: { formTitle, formDescription, formElements } },
+       });
+     } else {
+       setErrors(newErrors);
+     }
   };
 
   return (
@@ -102,7 +102,7 @@ const Form = () => {
             type="submit"
             className="bg-green-500 text-white p-2 rounded mt-4"
           >
-            Submit
+            Preview
           </button>
         </form>
         <ElementSelector onAddElement={addElement} />

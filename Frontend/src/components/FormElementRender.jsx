@@ -98,7 +98,7 @@ const FormElementRender = ({
           }}
         />
         <select
-          className="w-[20%] p-2 border rounded mb-2"
+          className="w-[23%] p-2 border rounded mb-2"
           value={inputType}
           onChange={handleInputChange}
         >
