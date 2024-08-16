@@ -12,8 +12,7 @@ const FormPreview = () => {
         {formData.formElements.map((element) => (
           <div key={element.id} className="mb-4 bg-white p-4 rounded shadow-md">
             <h3 className="text-xl font-semibold mb-2">{element.question}</h3>
-            {/* Render different types of elements here */}
-            <p>{element.answer}</p>
+                       <p>{element.answer}</p>
           </div>
         ))}
       </div>

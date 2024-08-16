@@ -56,9 +56,9 @@ const Form = () => {
       }
     });
     if (Object.keys(newErrors).length === 0) {
-      // Process form data without navigating to preview
+      
       console.log({ formTitle, formDescription, formElements });
-      // You can add additional logic here to handle form submission, such as saving data to a server
+      
     } else {
       setErrors(newErrors);
     }
