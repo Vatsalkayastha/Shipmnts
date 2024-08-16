@@ -1,7 +1,8 @@
 # Form Builder Application
 
-This project is a React-based form builder application with drag-and-drop functionality for reordering form elements.
+App: https://jocular-brioche-66ae7e.netlify.app/
 
+This project is a React-based form builder application.
 ## Getting Started
 
 ### Prerequisites
