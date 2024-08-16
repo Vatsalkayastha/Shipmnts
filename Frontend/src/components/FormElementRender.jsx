@@ -1,5 +1,7 @@
-// src/components/FormElementRender.js
 import React, { useState } from "react";
+import MultipleChoice from "./MultipleChoice";
+import Checkboxes from "./Checkboxes";
+import DropdownOptions from "./DropdownOptions";
 
 const FormElementRender = () => {
   const [inputType, setInputType] = useState("text-short");
@@ -23,28 +25,15 @@ const FormElementRender = () => {
         );
       case "multiple-choice":
         return (
-          <div>
-            <input type="radio" className="mr-2" name="multiple-choice" />
-            <label className="mr-4">Option 1</label>
-            <input type="radio" className="mr-2" name="multiple-choice" />
-            <label>Option 2</label>
-          </div>
+          <MultipleChoice />
         );
       case "checkboxes":
         return (
-          <div>
-            <input type="checkbox" className="mr-2" />
-            <label className="mr-4">Option 1</label>
-            <input type="checkbox" className="mr-2" />
-            <label>Option 2</label>
-          </div>
+          <Checkboxes />
         );
       case "dropdown":
         return (
-          <select className="w-full p-2 border rounded mt-1">
-            <option>Option 1</option>
-            <option>Option 2</option>
-          </select>
+          <DropdownOptions />
         );
       case "date-picker":
         return <input type="date" className="w-full p-2 border rounded mt-1" />;

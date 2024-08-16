@@ -1,4 +1,3 @@
-// src/components/ElementSelector.js
 import React from "react";
 
 const ElementSelector = ({ onAddElement }) => {
